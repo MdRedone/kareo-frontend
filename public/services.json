@@ -1,0 +1,67 @@
+[
+    {
+      "id": "ui11",
+      "name": "UI/UX Design",
+      "servicePrice": 400,
+      "rating": 5,
+      "img": "https://qph.fs.quoracdn.net/main-qimg-4d5306c2aabb3cc1741dc7ce576ccbb6"
+    },
+    {
+      "id": "ca22",
+      "name": "Cartoon Animation",
+      "servicePrice": 350,
+      "rating": 4.5,
+      "img": "https://assets3.thrillist.com/v1/image/2970774/1584x1056/crop;jpeg_quality=60;progressive.jpg"
+    },
+    {
+      "id": "we33",
+      "name": "Web Development",
+      "servicePrice": 220,
+      "rating": 5,
+      "img": "https://www.reachfirst.com/wp-content/uploads/2018/08/Web-Development.jpg"
+    },
+    {
+      "id": "di44",
+      "name": "Digital Marketing",
+      "servicePrice": 370,
+      "rating": 4,
+      "img": "https://cdn-wordpress-info.futurelearn.com/info/wp-content/uploads/FL307_blog_digital_marketing_banner-606x303.jpg"
+    },
+    {
+      "id": "ba55",
+      "name": "System Design",
+      "servicePrice": 200,
+      "rating": 3.5,
+      "img": "https://www.cronj.com/blog/wp-content/uploads/Artboard-10.png"
+    },
+    {
+      "id": "ph66",
+      "name": "Artificial Intelligence",
+      "servicePrice": 150,
+      "rating": 4,
+      "img": "https://www.srimax.com/wp-content/uploads/2020/01/Importance-of-Artificial-Intelligence.jpeg"
+    },
+    {
+      "id": "ar77",
+      "name": "Machine Learning",
+      "servicePrice": 700,
+      "rating": 5,
+      "img": "https://roxxcloud.com/wp-content/uploads/2021/08/Machine-Learning-Tools.jpg"
+    },
+    {
+      "id": "ma88",
+      "name": "Android Development",
+      "servicePrice": 190,
+      "rating": 3,
+      "img": "https://www.techsplace.com/wp-content/uploads/2020/02/Learn-Android-Development.jpg"
+    },
+    {
+      "id": "en99",
+      "name": "Forex Trading",
+      "servicePrice": 280,
+      "rating": 4.5,
+      "img": "https://crowdfunding-platforms.com/wp-content/uploads/2021/07/forex-trading-course-1024x576.jpeg"
+    }
+
+  
+  ]
