@@ -7,7 +7,7 @@ import { faCheckSquare } from "@fortawesome/free-solid-svg-icons";
 import "./Header.css";
 function Header() {
   return (
-    <div className="header">
+    <div className="header w-100">
       <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
         <Container>
           <LinkContainer to="/">
