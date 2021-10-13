@@ -83,19 +83,19 @@ function Home() {
           <>
             <Container>
               <Row className="pb-4">
-                <Col sm={12} md={6}>
+                <Col sm={12} md={6} lg={6} xl={6}>
                   <Image className="service-img" src={item.img} />
                 </Col>
-                <Col sm={12} md={6} className="right-column">
+                <Col sm={12} md={6} lg={6} xl={6} className="right-column">
                   <h2>{item.name}</h2>
 
                   <Row>
-                    <Col md={6}>
+                    <Col md={6} lg={6} xl={6}>
                       <p className="training-price">
                         Online Training Charge:$ {item.servicePrice}
                       </p>
                     </Col>
-                    <Col md={6}>
+                    <Col md={6} lg={6} xl={6}>
                       <p className="training-price">
                         Course Rating : $ {item.rating}
                       </p>
