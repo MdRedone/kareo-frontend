@@ -27,7 +27,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="home">
+    <div className="home mt-5 pt-2">
       <Carousel>
         <Carousel.Item interval={1000}>
           <img
