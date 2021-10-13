@@ -1,20 +1,8 @@
-/* contact us style  */
-.courses {
-  height: 564px;
+.membership {
+  padding-top: 200px;
 }
-.contact-form {
-  margin-top: 20px;
-  margin-left: 130px;
-  width: 80%;
-  border: 1px solid navy;
-  border-radius: 10px;
-  height: 500px;
-}
-.form-label {
-  font-size: 20px;
-  margin-left: 10px;
-  margin-top: 10px;
-}
-.bt-button {
-  margin-left: 10px;
+
+.membership-form {
+  height: 600px;
+  width: 100%;
 }

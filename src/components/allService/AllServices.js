@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./AllServices.css";
+import { Col, Image, Row, Button, Container } from "react-bootstrap";
 function AllServices() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [servicePage, setServicePage] = useState([]);
@@ -13,20 +14,42 @@ function AllServices() {
       });
   }, []);
   return (
-    <div className="row">
-      <div className="col-lg-12 service-item">
-        {/* all service show */}
-        {servicePage.map((service) => (
-          <div key={service.id} className="single-item">
-            <img src={service.img} alt="" />
-            <h4 className="service-name">{service.name}</h4>
-            <p>
-              Service Price:<span>$</span> {service.servicePrice}
-            </p>
-            <p>Rating: {service.rating}</p>
-          </div>
+    <div>
+      <Container>
+        <h1 className="service">Services</h1>
+      </Container>
+      {servicePage &&
+        servicePage.map((item) => (
+          <>
+            <Container>
+              <Row className="pb-4">
+                <Col sm={12} md={6}>
+                  <Image className="service-img" src={item.img} />
+                </Col>
+                <Col sm={12} md={6} className="right-column">
+                  <h2>{item.name}</h2>
+
+                  <Row>
+                    <Col md={6}>
+                      <p className="training-price">
+                        Online Training Charge:$ {item.servicePrice}
+                      </p>
+                    </Col>
+                    <Col md={6}>
+                      <p className="training-price">
+                        Course Rating : $ {item.rating}
+                      </p>
+                    </Col>
+                  </Row>
+
+                  <div className="add-member-btn">
+                    <Button>Join Now</Button>
+                  </div>
+                </Col>
+              </Row>
+            </Container>
+          </>
         ))}
-      </div>
     </div>
   );
 }

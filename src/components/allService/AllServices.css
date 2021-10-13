@@ -1,39 +1,31 @@
-.allService {
-  height: 564px;
-}
-.service-item {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr);
-  padding-bottom: 20px;
-}
-/* single item class style */
-.single-item {
-  justify-content: center;
-  margin-right: 5px;
-  padding-bottom: 0px;
-  margin-top: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-  width: 70%;
-  margin-left: 40px;
-}
-.single-item:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-/* image style  */
-.single-item img {
-  margin-top: 10px;
-  border-radius: 50%;
-  height: 150px;
-  width: 150px;
-  align-items: center;
-  margin-left: 80px;
-}
-/* name style  */
-.service-name {
-  color: blue;
-  font-weight: 400;
-}
-.single-item p {
+.service {
+  padding-top: 50px;
+  margin-top: 40px;
+  padding-bottom: 40px;
+  width: 100%;
   text-align: center;
+}
+.right-column {
+  padding-top: 50px;
+  width: 100%;
+}
+
+.training-price {
+  color: #b95416;
+}
+.add-member-btn Button {
+  background-color: #201f1f;
+  border: none;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 15px;
+  margin-top: 60px;
+}
+.add-member-btn Button:hover {
+  background-color: #383431e8;
+}
+
+.service-img {
+  width: 80%;
+  padding-top: 50px;
 }
