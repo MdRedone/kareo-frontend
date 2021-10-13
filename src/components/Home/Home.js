@@ -3,12 +3,11 @@ import "./Home.css";
 import {
   Carousel,
   Container,
-  Card,
-  CardGroup,
   Row,
   Col,
   Image,
   Button,
+  ListGroup,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -87,21 +86,21 @@ function Home() {
                   <Image className="service-img" src={item.img} />
                 </Col>
                 <Col sm={12} md={6} lg={6} xl={6} className="right-column">
-                  <h2>{item.name}</h2>
-
-                  <Row>
-                    <Col md={6} lg={6} xl={6}>
-                      <p className="training-price">
+                  <ListGroup vertical>
+                    <ListGroup.Item>
+                      <h2>{item.name}</h2>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <p style={{ float: "left" }}>
                         Online Training Charge:$ {item.servicePrice}
                       </p>
-                    </Col>
-                    <Col md={6} lg={6} xl={6}>
-                      <p className="training-price">
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <p style={{ float: "left" }}>
                         Course Rating : $ {item.rating}
                       </p>
-                    </Col>
-                  </Row>
-
+                    </ListGroup.Item>
+                  </ListGroup>
                   <div className="add-member-btn">
                     <Button>Join Now</Button>
                   </div>
