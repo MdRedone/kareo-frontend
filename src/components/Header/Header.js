@@ -1,6 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Container } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckSquare } from "@fortawesome/free-solid-svg-icons";
@@ -13,18 +12,11 @@ function Header() {
           <LinkContainer to="/">
             <Navbar.Brand className="navbar-brand">
               <FontAwesomeIcon icon={faCheckSquare} />
-              Pick of Science
+              Medibillonline - Kareo
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto nav">
-              <NavLink to="/">Home</NavLink>
-              <NavLink to="/services">Services</NavLink>
-              <NavLink to="/contactus">Contact</NavLink>
-              <NavLink to="/about">About </NavLink>
-            </Nav>
-          </Navbar.Collapse>
+          <Navbar.Collapse id="basic-navbar-nav"></Navbar.Collapse>
         </Container>
       </Navbar>
     </div>

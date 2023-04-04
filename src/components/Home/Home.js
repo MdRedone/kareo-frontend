@@ -1,114 +1,56 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable no-lone-blocks */
+import React, { useState } from "react";
 import "./Home.css";
-import {
-  Carousel,
-  Container,
-  Row,
-  Col,
-  Image,
-  Button,
-  ListGroup,
-} from "react-bootstrap";
-import { Link } from "react-router-dom";
-
-import image1 from "../../assets/images/annie-spratt-4-4WPFLVhAY-unsplash.jpg";
-import image2 from "../../assets/images/c-d-x-85XLV4Po2mk-unsplash.jpg";
-import image3 from "../../assets/images/kyle-gregory-devaras-6RTM8EsD1T8-unsplash.jpg";
+import { Container } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
+import axios from "axios";
 function Home() {
-  const [services, setServices] = useState([]);
+  const [file, setFile] = useState(null);
 
-  console.log(services);
-  useEffect(() => {
-    fetch("/services.json")
-      .then((response) => response.json())
-      .then((data) => {
-        setServices(data);
-      });
-  }, []);
+  const UPLOAD_ENDPOINT = "http://localhost:5000/api/file/create";
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    let res = await uploadFile(file);
+    console.log(res.data);
+  };
+
+  const uploadFile = async (file) => {
+    const formData = new FormData();
+    formData.append("files", file);
+    // console.log(file);
+    return await axios.post(UPLOAD_ENDPOINT, formData, {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    });
+  };
+
+  const handleOnChange = (e) => {
+    if (e.target.files[0].type === "text/csv") {
+      setFile(e.target.files[0]);
+    } else {
+      alert("Please Enter Excel file");
+    }
+  };
   return (
     <div className="home mt-5 pt-2">
-      <Carousel>
-        <Carousel.Item interval={1000}>
-          <img
-            className="d-block w-100 carousel-img"
-            src={image1}
-            alt="First slide"
+      <br />
+      <br />
+      <Container className="mt-1">
+        <Form validate="true" onSubmit={handleSubmit}>
+          <Form.Label>Upload File</Form.Label>
+          <Form.Control
+            type="file"
+            onChange={handleOnChange}
+            required
+            name="username"
           />
-          <Carousel.Caption>
-            <h3>Build Knowledge</h3>
-            <p>
-              Knowledge building refers to the process of creating new cognitive
-              artifacts.
-            </p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item interval={500}>
-          <img
-            className="d-block w-100 carousel-img"
-            src={image2}
-            alt="Second slide"
-          />
-          <Carousel.Caption>
-            <h3>Enrich Thinking</h3>
-            <p>
-              We can enrich thinking and creative skills to make our child
-              expressive.
-            </p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100 carousel-img"
-            src={image3}
-            alt="Third slide"
-          />
-          <Carousel.Caption>
-            <h3>Show the Capability</h3>
-            <p>
-              To show the capability of working independently and would expect
-              an ambitious graduate.
-            </p>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
-      <div className="mt-3">
-        <h1>Our Courses</h1>
-        <p>We are offering so many courses. Here are some samples.</p>
-      </div>
-
-      {services &&
-        services.slice(0, 3).map((item) => (
-          <>
-            <Container>
-              <Row className="pb-4">
-                <Col sm={12} md={6} lg={6} xl={6}>
-                  <Image className="service-img" src={item.img} />
-                </Col>
-                <Col sm={12} md={6} lg={6} xl={6} className="right-column">
-                  <ListGroup vertical>
-                    <ListGroup.Item>
-                      <h2>{item.name}</h2>
-                    </ListGroup.Item>
-                    <ListGroup.Item>
-                      <p style={{ float: "left" }}>
-                        Online Training Charge:$ {item.servicePrice}
-                      </p>
-                    </ListGroup.Item>
-                    <ListGroup.Item>
-                      <p style={{ float: "left" }}>
-                        Course Rating : $ {item.rating}
-                      </p>
-                    </ListGroup.Item>
-                  </ListGroup>
-                  <div className="add-member-btn">
-                    <Button>Join Now</Button>
-                  </div>
-                </Col>
-              </Row>
-            </Container>
-          </>
-        ))}
+          <Button type="submit" className="btn-primary mt-2">
+            Submit
+          </Button>
+        </Form>
+      </Container>
     </div>
   );
 }

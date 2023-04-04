@@ -4,7 +4,7 @@ function Footer() {
   return (
     // footer content
     <div className="footer">
-      <h6>©Copyrights - All Rights Reserved by @POS 2021</h6>
+      <h6>©Copyrights - All Rights Reserved by @kareo 2023</h6>
     </div>
   );
 }
