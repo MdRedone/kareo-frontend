@@ -6,47 +6,24 @@ import { Button, Form } from "react-bootstrap";
 import axios from "axios";
 function Home() {
   const [file, setFile] = useState(null);
-  console.log(file);
-  const UPLOAD_ENDPOINT = "http://localhost:5000/api/file/create";
-  const FILE_UPLOAD_ENDPOINT = "http://localhost:5000/api/file/upload";
+  const [showResponseData, setShowResponseData] = useState([]);
+  const FILE_UPLOAD_ENDPOINT = "http://127.0.0.1:8000/addpatient";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     await uploadFile(file);
   };
 
-  const processCSV = async (str, delim = ",") => {
-    const headers = str.slice(0, str.indexOf("\n")).split(delim);
-    const rows = str.slice(str.indexOf("\n") + 1).split("\n");
-
-    const newArray = rows.map((row) => {
-      const values = row.split(delim);
-      const eachObject = headers.reduce((obj, header, i) => {
-        obj[header] = values[i];
-        return obj;
-      }, {});
-      return eachObject;
-    });
-
-    return await axios.post(UPLOAD_ENDPOINT, newArray);
-  };
-
   const uploadFile = async (file) => {
-    const reader = new FileReader();
     const formData = new FormData();
-    formData.append("file", file);
-    axios.post(FILE_UPLOAD_ENDPOINT, formData, {
+    formData.append("csv_file", file);
+    const result = await axios.post(FILE_UPLOAD_ENDPOINT, formData, {
       headers: {
         "content-type": "multipart/form-data",
       },
     });
-
-    reader.onload = function (e) {
-      const text = e.target.result;
-      processCSV(text);
-    };
-
-    reader.readAsText(file);
+    setShowResponseData(result?.data);
   };
 
   const handleOnChange = (e) => {
@@ -73,6 +50,16 @@ function Home() {
             Submit
           </Button>
         </Form>
+
+        <br />
+        <div>
+          {showResponseData.length >= 0 &&
+            showResponseData?.map((i, id) => (
+              <>
+                <div key={id}>{i}</div>
+              </>
+            ))}
+        </div>
       </Container>
     </div>
   );
